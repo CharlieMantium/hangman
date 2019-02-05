@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box; }
+
+html {
+  background: #131B23;
+  font-family: coiny; }
+
+body .container {
+  margin: auto;
+  padding: 5px;
+  border: 3px solid #F3F7F0;
+  border-radius: 10px;
+  width: 90%;
+  height: 95vh;
+  display: grid;
+  grid-template: 12% 79% 1fr / 100%;
+  grid-row-gap: 5px;
+  align-content: stretch;
+  align-items: stretch; }
+  body .container .header, body .container .game-wrapper, body .container .sentence-wrapper {
+    border: inherit;
+    border-radius: inherit;
+    background-color: #F2545B; }
+  body .container .header .title {
+    text-align: center;
+    margin-top: .1em;
+    margin-bottom: 0; }
+  body .container .header .btn {
+    display: block;
+    margin: 0 auto .5em auto;
+    width: 10em;
+    font-family: inherit;
+    border: 0.2em solid #131B23;
+    border-radius: 1em;
+    color: #131B23;
+    background-color: #F3F7F0; }
+    body .container .header .btn:hover {
+      cursor: pointer;
+      background-color: #A93F55;
+      color: #F3F7F0;
+      border: 0.25em solid #F3F7F0;
+      margin: 0 auto .4em auto; }
+  body .container .game-wrapper {
+    display: grid;
+    grid-template: repeat(8, 12%)/repeat(7, 14%);
+    justify-content: center;
+    align-content: center;
+    grid-gap: .2%; }
+    @media screen and (max-width: 600px) {
+      body .container .game-wrapper {
+        grid-template: repeat(8, 12%)/repeat(7, 14%); } }
+    body .container .game-wrapper .image-container {
+      border: inherit;
+      border-radius: inherit;
+      grid-area: 2 / 2 / 8 / 7;
+      justify-self: stretch;
+      align-self: stretch; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .image-container {
+          grid-area: 1 / 1 / 5 / 8; } }
+      body .container .game-wrapper .image-container .image {
+        width: 100%;
+        height: 100%; }
+    body .container .game-wrapper .letter-container {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit; }
+      body .container .game-wrapper .letter-container:hover {
+        background-color: #A93F55; }
+        body .container .game-wrapper .letter-container:hover p {
+          color: #F3F7F0;
+          text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; }
+      body .container .game-wrapper .letter-container p {
+        text-align: center;
+        font-size: 1.3em; }
+    body .container .game-wrapper .border-bottom {
+      border-bottom: 3px dashed #F3F7F0; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .border-bottom {
+          border: 3px dashed #F3F7F0; } }
+    body .container .game-wrapper .border-top {
+      border-top: 3px dashed #F3F7F0; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .border-top {
+          border: 3px dashed #F3F7F0; } }
+    body .container .game-wrapper .border-left {
+      border-left: 3px dashed #F3F7F0; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .border-left {
+          border: 3px dashed #F3F7F0; } }
+    body .container .game-wrapper .border-right {
+      border-right: 3px dashed #F3F7F0; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .border-right {
+          border: 3px dashed #F3F7F0; } }
+    body .container .game-wrapper .a {
+      grid-area: 1 / 1 / 2 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .a {
+          grid-area: 5 / 1 / 6 / 2; } }
+    body .container .game-wrapper .b {
+      grid-area: 1 / 2 / 2 / 3; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .b {
+          grid-area: 5 / 2 / 6 / 3; } }
+    body .container .game-wrapper .c {
+      grid-area: 1 / 3 / 2 / 4; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .c {
+          grid-area: 5 / 3 / 6 / 4; } }
+    body .container .game-wrapper .d {
+      grid-area: 1 / 4 / 2 / 5; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .d {
+          grid-area: 5 / 4 / 6 / 5; } }
+    body .container .game-wrapper .e {
+      grid-area: 1 / 5 / 2 / 6; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .e {
+          grid-area: 5 / 5 / 6 / 6; } }
+    body .container .game-wrapper .f {
+      grid-area: 1 / 6 / 2 / 7; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .f {
+          grid-area: 5 / 6 / 6 / 7; } }
+    body .container .game-wrapper .g {
+      grid-area: 1 / 7 / 2 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .g {
+          grid-area: 5 / 7 / 6 / 8; } }
+    body .container .game-wrapper .h {
+      grid-area: 2 / 7 / 3 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .h {
+          grid-area: 6 / 1 / 7 / 2; } }
+    body .container .game-wrapper .i {
+      grid-area: 3 / 7 / 4 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .i {
+          grid-area: 6 / 2 / 7 / 3; } }
+    body .container .game-wrapper .j {
+      grid-area: 4 / 7 / 5 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .j {
+          grid-area: 6 / 3 / 7 / 4; } }
+    body .container .game-wrapper .k {
+      grid-area: 5 / 7 / 6 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .k {
+          grid-area: 6 / 4 / 7 / 5; } }
+    body .container .game-wrapper .l {
+      grid-area: 6 / 7 / 7 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .l {
+          grid-area: 6 / 5 / 7 / 6; } }
+    body .container .game-wrapper .m {
+      grid-area: 7 / 7 / 8 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .m {
+          grid-area: 6 / 6 / 7 / 7; } }
+    body .container .game-wrapper .n {
+      grid-area: 8 / 7 / 9 / 8; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .n {
+          grid-area: 6 / 7 / 7 / 8; } }
+    body .container .game-wrapper .o {
+      grid-area: 8 / 6 / 9 / 7; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .o {
+          grid-area: 7 / 1 / 8 / 2; } }
+    body .container .game-wrapper .p {
+      grid-area: 8 / 5 / 9 / 6; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .p {
+          grid-area: 7 / 2 / 8 / 3; } }
+    body .container .game-wrapper .q {
+      grid-area: 8 / 4 / 9 / 5; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .q {
+          grid-area: 7 / 3 / 8 / 4; } }
+    body .container .game-wrapper .r {
+      grid-area: 8 / 3 / 9 / 4; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .r {
+          grid-area: 7 / 4 / 8 / 5; } }
+    body .container .game-wrapper .s {
+      grid-area: 8 / 2 / 9 / 3; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .s {
+          grid-area: 7 / 5 / 8 / 6; } }
+    body .container .game-wrapper .t {
+      grid-area: 8 / 1 / 9 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .t {
+          grid-area: 7 / 6 / 8 / 7; } }
+    body .container .game-wrapper .u {
+      grid-area: 7 / 1 / 8 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .u {
+          grid-area: 7 / 7 / 8 / 8; } }
+    body .container .game-wrapper .v {
+      grid-area: 6 / 1 / 7 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .v {
+          grid-area: 8 / 2 / 9 / 3; } }
+    body .container .game-wrapper .w {
+      grid-area: 5 / 1 / 6 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .w {
+          grid-area: 8 / 3 / 9 / 4; } }
+    body .container .game-wrapper .x {
+      grid-area: 4 / 1 / 5 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .x {
+          grid-area: 8 / 4 / 9 / 5; } }
+    body .container .game-wrapper .y {
+      grid-area: 3 / 1 / 4 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .y {
+          grid-area: 8 / 5 / 9 / 6; } }
+    body .container .game-wrapper .z {
+      grid-area: 2 / 1 / 3 / 2; }
+      @media screen and (max-width: 600px) {
+        body .container .game-wrapper .z {
+          grid-area: 8 / 6 / 9 / 7; } }
+  body .container .sentence-wrapper .sentence {
+    text-align: center;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-transform: uppercase; }
+
+/*# sourceMappingURL=styles.css.map */
