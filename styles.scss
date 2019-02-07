@@ -1,0 +1,300 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $blackish;
+  font-family: coiny;
+}
+
+.wrapper {
+  margin: auto;
+  padding: 5px;
+  border: 3px solid $whiteish;
+  border-radius: 10px;
+  width: 100%;
+  height: 95vh;
+  display: grid;
+  grid-template: 12% 79% 1fr / 100%;
+  grid-row-gap: 5px;
+  align-content: stretch;
+  align-items: stretch;
+  @include nonmobile-screens {
+    width: 90%;
+  }
+
+  .header, .game-wrapper, .sentence-wrapper {
+    border: inherit;
+    border-radius: inherit;
+    background-color: $lighter-red;
+  }
+
+  .header {
+
+    .title {
+      text-align: center;
+      margin-top: .1em;
+      margin-bottom: 0;
+    }
+
+    .btn {
+      display: block;
+      margin: 0 auto .5em auto;
+      width: 10em;
+      font-family: inherit;
+      border: .2em solid $blackish;
+      border-radius: 1em;
+      color: $blackish;
+      background-color: $whiteish;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $darker-red;
+        color: $whiteish;
+        border: .25em solid $whiteish;
+        margin: 0 auto .4em auto;
+      }
+    }
+  }
+
+  .game-wrapper {
+    display: grid;
+    grid-template: repeat(8, 12%) / repeat(7, 14%);
+    justify-content: center;
+    align-content: center;
+    grid-gap: .2%;
+
+    .image-wrapper {
+      border: inherit;
+      border-radius: inherit;
+      grid-area: 1 / 1 / 5 / 8;
+      justify-self: stretch;
+      align-self: stretch;
+
+      @include nonmobile-screens {
+        grid-area: 2 / 2 / 8 / 7;
+      }
+
+      .image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .letter-wrapper {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+
+      &:hover {
+        background-color: $darker-red;
+        p {
+          color: $whiteish;
+          text-shadow: -2px 0 $black, 0 2px $black, 2px 0 $black, 0 -2px $black;
+        }
+      }
+
+      p {
+        text-align: center;
+        font-size: 1.3em;
+      }
+    }
+
+    .border-bottom {
+      border: 3px dashed $whiteish;
+      @include nonmobile-screens {
+        border-bottom: 3px dashed $whiteish;
+      }
+    }
+
+    .border-top {
+      border: 3px dashed $whiteish;
+      @include nonmobile-screens {
+        border-top: 3px dashed $whiteish;
+      }
+    }
+
+    .border-left {
+      border: 3px dashed $whiteish;
+      @include nonmobile-screens {
+        border-left: 3px dashed $whiteish;
+      }
+    }
+
+    .border-right {
+      border: 3px dashed $whiteish;
+      @include nonmobile-screens {
+        border-right: 3px dashed $whiteish;
+      }
+    }
+
+    .a {
+      grid-area: 5 / 1 / 6 / 2;
+      @include nonmobile-screens {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+    }
+    .b {
+      grid-area: 5 / 2 / 6 / 3;
+      @include nonmobile-screens {
+        grid-area: 1 / 2 / 2 / 3;
+      }
+    }
+    .c {
+      grid-area: 5 / 3 / 6 / 4;
+      @include nonmobile-screens {
+        grid-area: 1 / 3 / 2 / 4;
+      }
+    }
+    .d {
+      grid-area: 5 / 4 / 6 / 5;
+      @include nonmobile-screens {
+        grid-area: 1 / 4 / 2 / 5;
+      }
+    }
+    .e {
+      grid-area: 5 / 5 / 6 / 6;
+      @include nonmobile-screens {
+        grid-area: 1 / 5 / 2 / 6;
+      }
+    }
+    .f {
+      grid-area: 5 / 6 / 6 / 7;
+      @include nonmobile-screens {
+        grid-area: 1 / 6 / 2 / 7;
+      }
+    }
+    .g {
+      grid-area: 5 / 7 / 6 / 8;
+      @include nonmobile-screens {
+        grid-area: 1 / 7 / 2 / 8;
+      }
+    }
+    .h {
+      grid-area: 6 / 1 / 7 / 2;
+      @include nonmobile-screens {
+        grid-area: 2 / 7 / 3 / 8;
+      }
+    }
+    .i {
+      grid-area: 6 / 2 / 7 / 3;
+      @include nonmobile-screens {
+        grid-area: 3 / 7 / 4 / 8;
+      }
+    }
+    .j {
+      grid-area: 6 / 3 / 7 / 4;
+      @include nonmobile-screens {
+        grid-area: 4 / 7 / 5 / 8;
+      }
+    }
+    .k {
+      grid-area: 6 / 4 / 7 / 5;
+      @include nonmobile-screens {
+        grid-area: 5 / 7 / 6 / 8;
+      }
+    }
+    .l {
+      grid-area: 6 / 5 / 7 / 6;
+      @include nonmobile-screens {
+        grid-area: 6 / 7 / 7 / 8;
+      }
+    }
+    .m {
+      grid-area: 6 / 6 / 7 / 7;
+      @include nonmobile-screens {
+        grid-area: 7 / 7 / 8 / 8;
+      }
+    }
+    .n {
+      grid-area: 6 / 7 / 7 / 8;
+      @include nonmobile-screens {
+        grid-area: 8 / 7 / 9 / 8;
+      }
+    }
+    .o {
+      grid-area: 7 / 1 / 8 / 2;
+      @include nonmobile-screens {
+        grid-area: 8 / 6 / 9 / 7;
+      }
+    }
+    .p {
+      grid-area: 7 / 2 / 8 / 3;
+      @include nonmobile-screens {
+        grid-area: 8 / 5 / 9 / 6;
+      }
+    }
+    .q {
+      grid-area: 7 / 3 / 8 / 4;
+      @include nonmobile-screens {
+        grid-area: 8 / 4 / 9 / 5;
+      }
+    }
+    .r {
+      grid-area: 7 / 4 / 8 / 5;
+      @include nonmobile-screens {
+        grid-area: 8 / 3 / 9 / 4;
+      }
+    }
+    .s {
+      grid-area: 7 / 5 / 8 / 6;
+      @include nonmobile-screens {
+        grid-area: 8 / 2 / 9 / 3;
+      }
+    }
+    .t {
+      grid-area: 7 / 6 / 8 / 7;
+      @include nonmobile-screens {
+        grid-area: 8 / 1 / 9 / 2;
+      }
+    }
+    .u {
+      grid-area: 7 / 7 / 8 / 8;
+      @include nonmobile-screens {
+        grid-area: 7 / 1 / 8 / 2;
+      }
+    }
+    .v {
+      grid-area: 8 / 2 / 9 / 3;
+      @include nonmobile-screens {
+        grid-area: 6 / 1 / 7 / 2;
+      }
+    }
+    .w {
+      grid-area: 8 / 3 / 9 / 4;
+      @include nonmobile-screens {
+        grid-area: 5 / 1 / 6 / 2;
+      }
+    }
+    .x {
+      grid-area: 8 / 4 / 9 / 5;
+      @include nonmobile-screens {
+        grid-area: 4 / 1 / 5 / 2;
+      }
+    }
+    .y {
+      grid-area: 8 / 5 / 9 / 6;
+      @include nonmobile-screens {
+        grid-area: 3 / 1 / 4 / 2;
+      }
+    }
+    .z {
+      grid-area: 8 / 6 / 9 / 7;
+      @include nonmobile-screens {
+        grid-area: 2 / 1 / 3 / 2;
+      }
+    }
+  }
+
+  .sentence {
+    text-align: center;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-transform: uppercase;
+  }
+}
+
+
