@@ -103,31 +103,79 @@ body {
       }
     }
 
-    .border-bottom {
+    .border-all {
       border: 3px dashed $whiteish;
-      @include nonmobile-screens {
+    }
+
+    @include nonmobile-screens {
+      .top {
+        border-top: 0;
+        border-right: 3px dashed $whiteish;
         border-bottom: 3px dashed $whiteish;
-      }
-    }
-
-    .border-top {
-      border: 3px dashed $whiteish;
-      @include nonmobile-screens {
-        border-top: 3px dashed $whiteish;
-      }
-    }
-
-    .border-left {
-      border: 3px dashed $whiteish;
-      @include nonmobile-screens {
         border-left: 3px dashed $whiteish;
       }
     }
 
-    .border-right {
-      border: 3px dashed $whiteish;
-      @include nonmobile-screens {
+    @include nonmobile-screens {
+      .bottom {
+        border-top: 3px dashed $whiteish;
         border-right: 3px dashed $whiteish;
+        border-bottom: 0;
+        border-left: 3px dashed $whiteish;
+      }
+    }
+
+    @include nonmobile-screens {
+      .left {
+        border-top: 3px dashed $whiteish;
+        border-right: 3px dashed $whiteish;
+        border-bottom: 3px dashed $whiteish;
+        border-left: 0;
+      }
+    }
+
+    @include nonmobile-screens {
+      .right {
+        border-top: 3px dashed $whiteish;
+        border-right: 0;
+        border-bottom: 3px dashed $whiteish;
+        border-left: 3px dashed $whiteish;
+      }
+    }
+
+    @include nonmobile-screens {
+      .top-left {
+        border-top: 0;
+        border-right: 3px dashed $whiteish;
+        border-bottom: 3px dashed $whiteish;
+        border-left: 0;
+      }
+    }
+
+    @include nonmobile-screens {
+      .top-right {
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 3px dashed $whiteish;
+        border-left: 3px dashed $whiteish;
+      }
+    }
+
+    @include nonmobile-screens {
+      .bottom-right {
+        border-top: 3px dashed $whiteish;
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 3px dashed $whiteish;
+      }
+    }
+
+    @include nonmobile-screens {
+      .bottom-left {
+        border-top: 3px dashed $whiteish;
+        border-right: 3px dashed $whiteish;
+        border-bottom: 0;
+        border-left: 0;
       }
     }
 
