@@ -1,7 +1,16 @@
 const gameWrapper = document.querySelector('.game-wrapper');
-gameSetup();
+const mainBtn = document.querySelector('.btn');
+const imageWrapper = document.querySelector('.image-wrapper');
+const sentence = document.querySelector('.sentence');
+const sentences = [
+  'Grass is always greener on the other side',
+  'It takes two to tango',
+  'Money makes the world go round'
+];
 
-function gameSetup() {
+appSetup();
+
+function appSetup() {
   for (i = 0; i < 26; i++) {
     let insertedDiv = document.createElement('div');
     let paragraph = document.createElement('p');
@@ -28,4 +37,29 @@ function gameSetup() {
     }
     gameWrapper.appendChild(insertedDiv);
   }
+  mainBtn.addEventListener('click', gameSetup);
+}
+
+function gameSetup() {
+  const letters = document.querySelectorAll('.letter-wrapper');
+  letters.forEach(item => item.addEventListener('click', event => alert(`CHUJ`)));
+  imageWrapper.innerHTML = '';
+  let insertedImg = document.createElement('img');
+  insertedImg.classList.add('image');
+  insertedImg.src = 'img/s0.jpg';
+  imageWrapper.appendChild(insertedImg);
+  sentence.innerHTML = '';
+  sentence.innerHTML = sentences[getRandomInt(sentences.length)];
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function encryptSentence(proverb) {
+  [...proverb].forEach(letter => {
+    if (letter === ' ') {
+      
+    }
+  })
 }

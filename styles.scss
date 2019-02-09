@@ -73,6 +73,7 @@ body {
       grid-area: 1 / 1 / 5 / 8;
       justify-self: stretch;
       align-self: stretch;
+      background-color: $blackish;
 
       @include nonmobile-screens {
         grid-area: 2 / 2 / 8 / 7;
@@ -81,6 +82,14 @@ body {
       .image {
         width: 100%;
         height: 100%;
+      }
+
+      .welcome-text {
+        text-align: center;
+        color: $whiteish;
+        font-weight: 400;
+        position: relative;
+        top: 40%;
       }
     }
 
