@@ -1,4 +1,5 @@
 const gameWrapper = document.querySelector('.game-wrapper');
+<<<<<<< HEAD
 const mainBtn = document.querySelector('.btn');
 const imageWrapper = document.querySelector('.image-wrapper');
 const sentence = document.querySelector('.sentence');
@@ -12,31 +13,44 @@ appSetup();
 
 function appSetup() {
   for (i = 0; i < 26; i++) {
+=======
+const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+
+gameSetup();
+
+function gameSetup() {
+  alphabet.forEach((item, i) => {
+>>>>>>> render-letters-js
     let insertedDiv = document.createElement('div');
     let paragraph = document.createElement('p');
     let letter = String.fromCharCode(i + 97);
     paragraph.innerHTML = letter;
     insertedDiv.append(paragraph);
-    insertedDiv.classList.add('letter-wrapper', `${letter}`, 'border-all');
-    if (i === 0) {
-      insertedDiv.classList.add('top-left');
-    } else if (i > 0 && i < 6) {
-      insertedDiv.classList.add('top');
-    } else if (i === 6) {
-      insertedDiv.classList.add('top-right');
-    } else if (i > 6 && i < 13) {
-      insertedDiv.classList.add('right');
-    } else if (i === 13) {
-      insertedDiv.classList.add('bottom-right');
-    } else if (i > 13 && i < 19) {
-      insertedDiv.classList.add('bottom');
-    } else if (i === 19) {
-      insertedDiv.classList.add('bottom-left');
-    } else {
-      insertedDiv.classList.add('left');
-    }
+    addLetterClasses(insertedDiv, letter, i);
     gameWrapper.appendChild(insertedDiv);
+  })
+}
+
+function addLetterClasses(letterDiv, letter, i) {
+  letterDiv.classList.add('letter-wrapper', `${letter}`);
+  if (i === 0) {
+    letterDiv.classList.add('top-left');
+  } else if (i > 0 && i < 6) {
+    letterDiv.classList.add('top');
+  } else if (i === 6) {
+    letterDiv.classList.add('top-right');
+  } else if (i > 6 && i < 13) {
+    letterDiv.classList.add('right');
+  } else if (i === 13) {
+    letterDiv.classList.add('bottom-right');
+  } else if (i > 13 && i < 19) {
+    letterDiv.classList.add('bottom');
+  } else if (i === 19) {
+    letterDiv.classList.add('bottom-left');
+  } else {
+    letterDiv.classList.add('left');
   }
+<<<<<<< HEAD
   mainBtn.addEventListener('click', gameSetup);
 }
 
@@ -66,4 +80,7 @@ function encryptSentence(proverb) {
     return encryptedLetter;
   })
   return encryptedArray.join('');
+=======
+  return letterDiv;
+>>>>>>> render-letters-js
 }
