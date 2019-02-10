@@ -49,7 +49,7 @@ function gameSetup() {
   insertedImg.src = 'img/s0.jpg';
   imageWrapper.appendChild(insertedImg);
   sentence.innerHTML = '';
-  sentence.innerHTML = sentences[getRandomInt(sentences.length)];
+  sentence.innerHTML = encryptSentence(sentences[getRandomInt(sentences.length)]);
 }
 
 function getRandomInt(max) {
@@ -57,9 +57,13 @@ function getRandomInt(max) {
 }
 
 function encryptSentence(proverb) {
-  [...proverb].forEach(letter => {
+  encryptedArray = [...proverb].map(letter => {
     if (letter === ' ') {
-      
+      encryptedLetter = '-';
+    } else {
+      encryptedLetter = '_';
     }
+    return encryptedLetter;
   })
+  return encryptedArray.join('');
 }
