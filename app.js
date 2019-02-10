@@ -1,26 +1,10 @@
 const gameWrapper = document.querySelector('.game-wrapper');
-<<<<<<< HEAD
-const mainBtn = document.querySelector('.btn');
-const imageWrapper = document.querySelector('.image-wrapper');
-const sentence = document.querySelector('.sentence');
-const sentences = [
-  'Grass is always greener on the other side',
-  'It takes two to tango',
-  'Money makes the world go round'
-];
-
-appSetup();
-
-function appSetup() {
-  for (i = 0; i < 26; i++) {
-=======
 const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 
 gameSetup();
 
 function gameSetup() {
   alphabet.forEach((item, i) => {
->>>>>>> render-letters-js
     let insertedDiv = document.createElement('div');
     let paragraph = document.createElement('p');
     let letter = String.fromCharCode(i + 97);
@@ -50,37 +34,5 @@ function addLetterClasses(letterDiv, letter, i) {
   } else {
     letterDiv.classList.add('left');
   }
-<<<<<<< HEAD
-  mainBtn.addEventListener('click', gameSetup);
-}
-
-function gameSetup() {
-  const letters = document.querySelectorAll('.letter-wrapper');
-  letters.forEach(item => item.addEventListener('click', event => alert(`CHUJ`)));
-  imageWrapper.innerHTML = '';
-  let insertedImg = document.createElement('img');
-  insertedImg.classList.add('image');
-  insertedImg.src = 'img/s0.jpg';
-  imageWrapper.appendChild(insertedImg);
-  sentence.innerHTML = '';
-  sentence.innerHTML = encryptSentence(sentences[getRandomInt(sentences.length)]);
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function encryptSentence(proverb) {
-  encryptedArray = [...proverb].map(letter => {
-    if (letter === ' ') {
-      encryptedLetter = '-';
-    } else {
-      encryptedLetter = '_';
-    }
-    return encryptedLetter;
-  })
-  return encryptedArray.join('');
-=======
   return letterDiv;
->>>>>>> render-letters-js
 }
