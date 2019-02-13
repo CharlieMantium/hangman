@@ -1,5 +1,5 @@
 const gameWrapper = document.querySelector('.game-wrapper');
-const alphabet = [...'abcdefghijklmnopqrstuvwxyz']
+const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 const mainBtn = document.querySelector('.btn');
 const imageWrapper = document.querySelector('.image-wrapper');
 const sentence = document.querySelector('.sentence');
@@ -26,6 +26,7 @@ function appSetup() {
 }
 
 function addClass(insertedDiv, letter, i) {
+  insertedDiv.setAttribute("id", `${letter}`);
   insertedDiv.classList.add('letter-wrapper', `${letter}`);
     if (i === 0) {
       insertedDiv.classList.add('top-left');
@@ -48,22 +49,32 @@ function addClass(insertedDiv, letter, i) {
 }
 
 function gameSetup() {
-  const letters = document.querySelectorAll('.letter-wrapper');
-  [...letters].forEach(item => item.addEventListener('click', function(item) {
-    let pickedLetter = item.target.innerHTML;
-    if (pickedLetter.charAt(0) === '<') {
-      letterCheck(pickedLetter.charAt(3));
-    } else {
-      letterCheck(pickedLetter);
-    }
-  }));
-  imageWrapper.innerHTML = '';
-  let insertedImg = document.createElement('img');
-  insertedImg.classList.add('image');
-  insertedImg.src = 'img/s0.jpg';
-  imageWrapper.appendChild(insertedImg);
+  addLetterListeners();
+  insertNextImg();
   let rndPickedProverb = proverbs[getRandomInt(proverbs.length)];
   sentence.innerHTML = encryptSentence(rndPickedProverb);
+}
+
+function addLetterListeners() {
+  const letters = document.querySelectorAll('.letter-wrapper');
+  [...letters].forEach(item => item.addEventListener('click', (event) => {
+    letterCheck(item.id);
+  }));
+}
+
+function insertNextImg() {
+  let insertedImg = document.createElement('img');
+  insertedImg.classList.add('image');
+  if (imageWrapper.firstElementChild.tagName === 'P') {
+    insertedImg.src = 'img/s0.jpg';
+  } else {
+    let currentImgSrc = imageWrapper.firstElementChild.src
+    let currentImgNumberIndex = currentImgSrc.indexOf('.jpg') - 1;
+    let nextImgNumber = Number(currentImgSrc[currentImgNumberIndex]) + 1;
+    insertedImg.src = 'img/s' + nextImgNumber + '.jpg';
+  }
+  imageWrapper.innerHTML = '';
+  imageWrapper.appendChild(insertedImg);
 }
 
 function getRandomInt(max) {
@@ -72,16 +83,11 @@ function getRandomInt(max) {
 
 function encryptSentence(inputSentence) {
   let encryptedArray = [...inputSentence].map(letter => {
-    if (letter === ' ') {
-      encryptedLetter = '-';
-    } else {
-      encryptedLetter = '_';
-    }
-    return encryptedLetter;
+    return (letter === ' ') ? (encryptedLetter = '-') : (encryptedLetter = '_');
   })
   return encryptedArray.join('');
 }
 
-letterCheck() {
-  // to be continued...
+function letterCheck(clickedLetter) {
+  alert(clickedLetter);
 }

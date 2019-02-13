@@ -101,6 +101,7 @@ body {
 
       &:hover {
         background-color: $darker-red;
+        cursor: pointer;
         p {
           color: $whiteish;
           text-shadow: -2px 0 $blackish, 0 2px $blackish, 2px 0 $blackish, 0 -2px $blackish;
@@ -354,6 +355,7 @@ body {
   .sentence-wrapper {
     display: grid;
     align-items: center;
+
     .sentence {
       margin: 0;
       font-size: 1.8em;
