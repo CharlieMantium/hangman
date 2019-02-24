@@ -57,9 +57,7 @@ function gameSetup() {
 
 function addLetterListeners() {
   const letters = document.querySelectorAll('.letter-wrapper');
-  [...letters].forEach(item => item.addEventListener('click', (event) => {
-    letterCheck(item.id);
-  }));
+  [...letters].forEach(item => item.addEventListener('click', event => letterCheck(item.id)));
 }
 
 function insertNextImg() {
@@ -68,9 +66,9 @@ function insertNextImg() {
   if (imageWrapper.firstElementChild.tagName === 'P') {
     insertedImg.src = 'img/s0.jpg';
   } else {
-    let currentImgSrc = imageWrapper.firstElementChild.src
-    let currentImgNumberIndex = currentImgSrc.indexOf('.jpg') - 1;
-    let nextImgNumber = Number(currentImgSrc[currentImgNumberIndex]) + 1;
+    const currentImgSrc = imageWrapper.firstElementChild.src
+    const currentImgNumberIndex = currentImgSrc.indexOf('.jpg') - 1;
+    const nextImgNumber = Number(currentImgSrc[currentImgNumberIndex]) + 1;
     insertedImg.src = 'img/s' + nextImgNumber + '.jpg';
   }
   imageWrapper.innerHTML = '';
