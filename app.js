@@ -53,8 +53,9 @@ function addClass(insertedDiv, letter, i) {
 function gameSetup() {
   addLetterListeners();
   insertNextImg();
-  let rndPickedProverb = proverbs[getRandomInt(proverbs.length)];
-  sentence.innerHTML = encryptSentence(rndPickedProverb);
+  state.proverb = proverbs[getRandomInt(proverbs.length)].toLowerCase();
+  state.displayedProverb = encryptSentence(state.proverb);
+  sentence.innerHTML = state.displayedProverb;
 }
 
 function addLetterListeners() {
@@ -82,5 +83,16 @@ function encryptSentence(inputSentence) {
 }
 
 function letterCheck(clickedLetter) {
-  alert(clickedLetter);
+  state.roundCounter++;
+  const letterPositions = charPositions(clickedLetter, state.proverb);
+  let currentDisplayedProverb = state.displayedProverb;
+  letterPositions.forEach(item => currentDisplayedProverb = currentDisplayedProverb.substr(0, item) + clickedLetter + currentDisplayedProverb.substr(item + 1));
+  state.displayedProverb = currentDisplayedProverb;
+  sentence.innerHTML = state.displayedProverb;
+}
+
+function charPositions(letter, proverb){
+  var positions=[],i=-1;
+  while((i=proverb.indexOf(letter,i+1)) >= 0) positions.push(i);
+  return positions;
 }
