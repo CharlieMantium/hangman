@@ -3,7 +3,9 @@ const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 const mainBtn = document.querySelector('.btn');
 const imageWrapper = document.querySelector('.image-wrapper');
 const sentence = document.querySelector('.sentence');
-let roundCounter = 1;
+const state = {
+  roundCounter: 0
+};
 const proverbs = [
   'Grass is always greener on the other side',
   'It takes two to tango',
@@ -57,20 +59,13 @@ function gameSetup() {
 
 function addLetterListeners() {
   const letters = document.querySelectorAll('.letter-wrapper');
-  [...letters].forEach(item => item.addEventListener('click', event => letterCheck(item.id)));
+  [...letters].forEach(item => item.addEventListener('click', () => letterCheck(item.id)));
 }
 
 function insertNextImg() {
   let insertedImg = document.createElement('img');
   insertedImg.classList.add('image');
-  if (imageWrapper.firstElementChild.tagName === 'P') {
-    insertedImg.src = 'img/s0.jpg';
-  } else {
-    const currentImgSrc = imageWrapper.firstElementChild.src
-    const currentImgNumberIndex = currentImgSrc.indexOf('.jpg') - 1;
-    const nextImgNumber = Number(currentImgSrc[currentImgNumberIndex]) + 1;
-    insertedImg.src = 'img/s' + nextImgNumber + '.jpg';
-  }
+  insertedImg.src = `img/s${state.roundCounter}.jpg`;
   imageWrapper.innerHTML = '';
   imageWrapper.appendChild(insertedImg);
 }
