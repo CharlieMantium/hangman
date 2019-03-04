@@ -8,7 +8,8 @@ const state = {
   roundCounter: 0,
   proverb: '',
   correct: [],
-  wrong: []
+  wrong: [],
+  isRunning: false
 };
 const proverbs = [
   'Grass is always greener on the other side',
@@ -28,7 +29,11 @@ function appSetup() {
     addClass(insertedDiv, letter, i);
     gameWrapper.appendChild(insertedDiv);
   });
-  mainBtn.addEventListener('click', gameSetup);
+  mainBtn.addEventListener('click', startGame);
+}
+
+function startGame() {
+  (state.isRunning === true) ? (restartGame()) : (gameSetup());
 }
 
 function addClass(insertedDiv, letter, i) {
@@ -58,6 +63,7 @@ function gameSetup() {
   addLetterListeners();
   insertNextImg();
   state.proverb = proverbs[getRandomInt(proverbs.length)].toLowerCase();
+  state.isRunning = true;
   displayProgress();
   mainBtn.innerHTML = 'RESTART GAME';
 }
@@ -69,11 +75,8 @@ function displayProgress() {
 function addLetterListeners() {
   const letters = document.querySelectorAll('.letter-wrapper');
   [...letters].forEach(item => item.addEventListener('click', () => {
-    if (state.correct.includes(item.id) || state.wrong.includes(item.id)) {
-      return;
-    } else {
-      letterCheck(item.id);
-    }
+    if ([...state.correct, ...state.wrong].includes(item.id)) return;
+    letterCheck(item.id);
   }));
 }
 
@@ -124,8 +127,6 @@ function wrongGuess(letter) {
 
 function gameOver() {
   mainBtn.innerHTML = 'PLAY AGAIN?';
-  mainBtn.removeEventListener('click', gameSetup);
-  mainBtn.addEventListener('click', restartGame);
   alphabet.forEach(item => state.correct.push(item));
   sentenceWrapper.classList.add('game-over');
 }
