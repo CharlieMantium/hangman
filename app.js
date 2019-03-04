@@ -60,16 +60,16 @@ function gameSetup() {
   displayProgress();
 }
 
-function displayProgress(){
+function displayProgress() {
   sentence.innerHTML = encryptProverb();
 }
 
-function addLetterListeners(){
+function addLetterListeners() {
   const letters = document.querySelectorAll('.letter-wrapper');
   [...letters].forEach(item => item.addEventListener('click', () => letterCheck(item.id)));
 }
 
-function insertNextImg(){
+function insertNextImg() {
   let insertedImg = document.createElement('img');
   insertedImg.classList.add('image');
   insertedImg.src = `img/s${state.roundCounter}.jpg`;
@@ -83,7 +83,7 @@ function getRandomInt(max) {
 
 function encryptProverb() {
   let encryptedArray = [...state.proverb].map(letter => {
-    if (state.correct.indexOf(letter) === -1){
+    if (state.correct.indexOf(letter) === -1) {
       return (letter === ' ') ? (encryptedLetter = '-') : (encryptedLetter = '_');
     } else {
       return letter;
