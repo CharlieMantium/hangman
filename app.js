@@ -3,6 +3,7 @@ const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
 const mainBtn = document.querySelector('.btn');
 const imageWrapper = document.querySelector('.image-wrapper');
 const sentence = document.querySelector('.sentence');
+const sentenceWrapper = document.querySelector('.sentence-wrapper');
 const state = {
   roundCounter: 0,
   proverb: '',
@@ -58,6 +59,7 @@ function gameSetup() {
   insertNextImg();
   state.proverb = proverbs[getRandomInt(proverbs.length)].toLowerCase();
   displayProgress();
+  mainBtn.innerHTML = 'RESTART GAME';
 }
 
 function displayProgress() {
@@ -66,13 +68,19 @@ function displayProgress() {
 
 function addLetterListeners() {
   const letters = document.querySelectorAll('.letter-wrapper');
-  [...letters].forEach(item => item.addEventListener('click', () => letterCheck(item.id)));
+  [...letters].forEach(item => item.addEventListener('click', () => {
+    if (state.correct.includes(item.id) || state.wrong.includes(item.id)) {
+      return;
+    } else {
+      letterCheck(item.id);
+    }
+  }));
 }
 
 function insertNextImg() {
   let insertedImg = document.createElement('img');
   insertedImg.classList.add('image');
-  insertedImg.src = `img/s${state.roundCounter}.jpg`;
+  insertedImg.src = `img/s${state.wrong.length}.jpg`;
   imageWrapper.innerHTML = '';
   imageWrapper.appendChild(insertedImg);
 }
@@ -94,6 +102,34 @@ function encryptProverb() {
 
 function letterCheck(clickedLetter) {
   state.roundCounter++;
-  (state.proverb.includes(clickedLetter) === true) ? (state.correct.push(clickedLetter)) : (state.wrong.push(clickedLetter));
+  (state.proverb.includes(clickedLetter)) ? (correctGuess(clickedLetter)) : (wrongGuess(clickedLetter));
   displayProgress();
+}
+
+function correctGuess(letter) {
+  state.correct.push(letter);
+  const clickedLetter = document.querySelector('.' + letter);
+  clickedLetter.classList.add('clicked-correct');
+}
+
+function wrongGuess(letter) {
+  state.wrong.push(letter);
+  const clickedLetter = document.querySelector('.' + letter);
+  clickedLetter.classList.add('clicked-wrong');
+  insertNextImg();
+  if (state.wrong.length === 9) {
+    gameOver();
+  }
+}
+
+function gameOver() {
+  mainBtn.innerHTML = 'PLAY AGAIN?';
+  mainBtn.removeEventListener('click', gameSetup);
+  mainBtn.addEventListener('click', restartGame);
+  alphabet.forEach(item => state.correct.push(item));
+  sentenceWrapper.classList.add('game-over');
+}
+
+function restartGame() {
+  console.log('Game restarts');
 }

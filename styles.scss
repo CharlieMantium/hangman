@@ -115,6 +115,30 @@ body {
       }
     }
 
+    .clicked-wrong {
+      background-color: darken($darker-red, 10%);
+      &:hover {
+        cursor: default;
+        background-color: darken($darker-red, 10%);
+      }
+      p {
+        color: $whiteish;
+        text-shadow: -2px 0 $blackish, 0 2px $blackish, 2px 0 $blackish, 0 -2px $blackish;
+      }
+    }
+
+    .clicked-correct {
+      background-color: lighten($lighter-red, 10%);
+      &:hover {
+        cursor: default;
+        background-color: lighten($lighter-red, 10%);
+      }
+      p {
+        color: $whiteish;
+        text-shadow: -2px 0 $blackish, 0 2px $blackish, 2px 0 $blackish, 0 -2px $blackish;
+      }
+    }
+
     .top {
       border: 3px dashed $whiteish;
       @include at-big-screen {
@@ -363,6 +387,10 @@ body {
       text-align: center;
       text-transform: uppercase;
     }
+  }
+
+  .game-over {
+    background-color: darken($darker-red, 10%);
   }
 }
 
