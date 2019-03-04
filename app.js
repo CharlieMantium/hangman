@@ -4,7 +4,10 @@ const mainBtn = document.querySelector('.btn');
 const imageWrapper = document.querySelector('.image-wrapper');
 const sentence = document.querySelector('.sentence');
 const state = {
-  roundCounter: 0
+  roundCounter: 0,
+  proverb: '',
+  correct: [],
+  wrong: []
 };
 const proverbs = [
   'Grass is always greener on the other side',
@@ -53,8 +56,12 @@ function addClass(insertedDiv, letter, i) {
 function gameSetup() {
   addLetterListeners();
   insertNextImg();
-  let rndPickedProverb = proverbs[getRandomInt(proverbs.length)];
-  sentence.innerHTML = encryptSentence(rndPickedProverb);
+  state.proverb = proverbs[getRandomInt(proverbs.length)].toLowerCase();
+  displayProgress();
+}
+
+function displayProgress() {
+  sentence.innerHTML = encryptProverb();
 }
 
 function addLetterListeners() {
@@ -74,13 +81,19 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function encryptSentence(inputSentence) {
-  let encryptedArray = [...inputSentence].map(letter => {
-    return (letter === ' ') ? (encryptedLetter = '-') : (encryptedLetter = '_');
+function encryptProverb() {
+  let encryptedArray = [...state.proverb].map(letter => {
+    if (state.correct.indexOf(letter) === -1) {
+      return (letter === ' ') ? (encryptedLetter = '-') : (encryptedLetter = '_');
+    } else {
+      return letter;
+    }
   })
   return encryptedArray.join('');
 }
 
 function letterCheck(clickedLetter) {
-  alert(clickedLetter);
+  state.roundCounter++;
+  (state.proverb.includes(clickedLetter) === true) ? (state.correct.push(clickedLetter)) : (state.wrong.push(clickedLetter));
+  displayProgress();
 }
