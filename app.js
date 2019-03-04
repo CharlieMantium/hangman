@@ -112,13 +112,13 @@ function letterCheck(clickedLetter) {
 function correctGuess(letter) {
   state.correct.push(letter);
   const clickedLetter = document.querySelector('.' + letter);
-  clickedLetter.classList.add('clicked-correct');
+  clickedLetter.classList.add('clicked', 'clicked-correct');
 }
 
 function wrongGuess(letter) {
   state.wrong.push(letter);
   const clickedLetter = document.querySelector('.' + letter);
-  clickedLetter.classList.add('clicked-wrong');
+  clickedLetter.classList.add('clicked', 'clicked-wrong');
   insertNextImg();
   if (state.wrong.length === 9) {
     gameOver();
@@ -132,5 +132,13 @@ function gameOver() {
 }
 
 function restartGame() {
+  state.roundCounter = 0;
+  state.proverb = '';
+  state.correct = [];
+  state.wrong = [];
+  const usedLetters = document.querySelectorAll('.clicked');
+  [...usedLetters].forEach(item => item.classList.remove('clicked', 'clicked-wrong', 'clicked-correct'));
+  sentenceWrapper.classList.remove('game-over');
+  gameSetup();
   console.log('Game restarts');
 }
