@@ -135,11 +135,7 @@ function wrongGuess(letter) {
 function gameOver(win) {
   mainBtn.innerHTML = 'PLAY AGAIN?';
   alphabet.forEach(item => state.correct.push(item));
-  if (win === false) {
-    sentenceWrapper.classList.add('lose');
-  } else {
-    sentenceWrapper.classList.add('win');
-  }
+  sentenceWrapper.classList.add(win ? 'win' : 'lose');
 }
 
 function restartGame() {
