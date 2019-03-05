@@ -394,7 +394,11 @@ body {
     }
   }
 
-  .game-over {
+  .win {
+    background-color: lighten($lighter-red, 10%);
+  }
+
+  .lose {
     background-color: darken($darker-red, 10%);
   }
 }

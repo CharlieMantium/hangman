@@ -111,8 +111,15 @@ function letterCheck(clickedLetter) {
 
 function correctGuess(letter) {
   state.correct.push(letter);
+  if (state.correct.length === uniqueProverbLettersLength()) gameOver(true);
   const clickedLetter = document.querySelector('.' + letter);
   clickedLetter.classList.add('clicked', 'clicked-correct');
+}
+
+function uniqueProverbLettersLength() {
+  const uniqueLetters = [];
+  [...state.proverb].forEach((item) => {if (uniqueLetters.includes(item) === false && item !== ' ') uniqueLetters.push(item)});
+  return uniqueLetters.length;
 }
 
 function wrongGuess(letter) {
@@ -121,14 +128,18 @@ function wrongGuess(letter) {
   clickedLetter.classList.add('clicked', 'clicked-wrong');
   insertNextImg();
   if (state.wrong.length === 9) {
-    gameOver();
+    gameOver(false);
   }
 }
 
-function gameOver() {
+function gameOver(win) {
   mainBtn.innerHTML = 'PLAY AGAIN?';
   alphabet.forEach(item => state.correct.push(item));
-  sentenceWrapper.classList.add('game-over');
+  if (win === false) {
+    sentenceWrapper.classList.add('lose');
+  } else {
+    sentenceWrapper.classList.add('win');
+  }
 }
 
 function restartGame() {
@@ -138,6 +149,6 @@ function restartGame() {
   state.wrong = [];
   const usedLetters = document.querySelectorAll('.clicked');
   [...usedLetters].forEach(item => item.classList.remove('clicked', 'clicked-wrong', 'clicked-correct'));
-  sentenceWrapper.classList.remove('game-over');
+  sentenceWrapper.classList.remove('win', 'lose');
   gameSetup();
 }
