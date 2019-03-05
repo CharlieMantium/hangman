@@ -140,5 +140,4 @@ function restartGame() {
   [...usedLetters].forEach(item => item.classList.remove('clicked', 'clicked-wrong', 'clicked-correct'));
   sentenceWrapper.classList.remove('game-over');
   gameSetup();
-  console.log('Game restarts');
 }
