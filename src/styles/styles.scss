@@ -37,17 +37,17 @@ body {
 
     .title {
       text-align: center;
-      margin-top: .1em;
+      margin-top: .5%;
       margin-bottom: 0;
     }
 
     .btn {
       display: block;
-      margin: 0 auto .5em auto;
-      width: 10em;
+      margin: 0 auto 1% auto;
+      width: 15%;
       font-family: inherit;
-      border: .2em solid $blackish;
-      border-radius: 1em;
+      border: 3px solid $blackish;
+      border-radius: 10px;
       color: $blackish;
       background-color: $whiteish;
 
@@ -55,8 +55,8 @@ body {
         cursor: pointer;
         background-color: $darker-red;
         color: $whiteish;
-        border: .25em solid $whiteish;
-        margin: 0 auto .4em auto;
+        border: 4px solid $whiteish;
+        margin: 0 auto 1% auto;
       }
     }
   }
@@ -86,7 +86,7 @@ body {
       }
 
       .initial-text {
-        font-size: 1.5em;
+        font-size: 150%;
         color: $whiteish;
         text-align: center;
         position: relative;
@@ -112,7 +112,7 @@ body {
 
       p {
         text-align: center;
-        font-size: 1.3em;
+        font-size: 150%;
       }
     }
 
@@ -388,7 +388,7 @@ body {
 
     .sentence {
       margin: 0;
-      font-size: 1.8em;
+      font-size: 200%;
       text-align: center;
       text-transform: uppercase;
     }
