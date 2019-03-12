@@ -19,12 +19,13 @@ body {
   width: 100%;
   height: 98vh;
   display: grid;
-  grid-template: 12% 79% 1fr / 100%;
+  grid-template: 5.5% 82% 1fr / 100%;
   grid-row-gap: 5px;
   align-content: stretch;
   align-items: stretch;
   @include at-big-screen {
     width: 90%;
+    grid-template: 12% 79% 1fr / 100%;
   }
 
   .header, .game-wrapper, .sentence-wrapper {
@@ -34,29 +35,59 @@ body {
   }
 
   .header {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-items: center;
+    align-items: center;
 
-    .title {
-      text-align: center;
-      margin-top: .5%;
-      margin-bottom: 0;
+    @include at-big-screen {
+      display: block;
     }
 
-    .btn {
-      display: block;
-      margin: 0 auto 1% auto;
-      width: 15%;
-      font-family: inherit;
-      border: 3px solid $blackish;
-      border-radius: 10px;
-      color: $blackish;
-      background-color: $whiteish;
+    .title-wrapper {
+      text-align: center;
 
-      &:hover {
-        cursor: pointer;
-        background-color: $darker-red;
-        color: $whiteish;
-        border: 4px solid $whiteish;
-        margin: 0 auto 1% auto;
+      .title {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @include at-big-screen {
+          margin-top: .5%;
+          margin-bottom: 0;
+          display: block;
+          font-size: 36px;
+        }
+      }
+    }
+
+    .btn-wrapper {
+      text-align: center;
+      margin-bottom: 10px;
+
+      .btn {
+        font-family: inherit;
+        font-size: 12px;
+        border: 2px solid $blackish;
+        border-radius: 10px;
+        color: $blackish;
+        background-color: $whiteish;
+        padding: 0 6px;
+
+        @include at-big-screen {
+          display: block;
+          width: 15%;
+          border: 3px solid $blackish;
+          margin: 2px auto;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: $darker-red;
+          color: $whiteish;
+          border: 4px solid $whiteish;
+          margin: 0 auto 1% auto;
+        }
       }
     }
   }
@@ -86,11 +117,12 @@ body {
       }
 
       .initial-text {
-        font-size: 150%;
+        font-size: 28px;
         color: $whiteish;
         text-align: center;
         position: relative;
-        top: 35%;
+        top: 33%;
+        margin: auto 5px;
       }
     }
 
@@ -112,7 +144,12 @@ body {
 
       p {
         text-align: center;
-        font-size: 150%;
+        font-size: 24px;
+        margin: 25% auto auto;
+
+        @include at-big-screen {
+          margin: 15% auto auto;
+        }
       }
     }
 
@@ -387,10 +424,15 @@ body {
     align-items: center;
 
     .sentence {
-      margin: 0;
-      font-size: 200%;
+      margin: 0 2px;
+      font-size: 22px;
+      line-height: 1;
       text-align: center;
       text-transform: uppercase;
+
+      @include at-big-screen {
+        font-size: 28px;
+      }
     }
   }
 
