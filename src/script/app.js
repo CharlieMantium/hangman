@@ -14,7 +14,18 @@ const state = {
 const proverbs = [
   'Grass is always greener on the other side',
   'It takes two to tango',
-  'Money makes the world go round'
+  'Money makes the world go round',
+  'Better safe than sorry',
+  'Practice makes perfect',
+  'Home is where the heart is',
+  'Easy come easy go',
+  'Where there is a will there is a way',
+  'Better late than never',
+  'An eye for an eye and a tooth for a tooth',
+  'Speech is silver silence is golden',
+  'Birds of a feather flock together',
+  'Beware of a silent dog and still water',
+  'Never judge a book by its cover'
 ];
 
 appSetup();
